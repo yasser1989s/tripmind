@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMind.AI | Admin Dashboard</title>
+    <style>
+        :root { --primary: #003580; --ai-glow: #7000ff; --bg: #f4f7f6; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .login-box, .dashboard-box { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 450px; border: 1px solid #e5e7eb; }
+        h2 { color: var(--primary); margin-bottom: 20px; font-size: 1.4rem; font-weight: 800; text-align: center; }
+        label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 6px; color: #444; }
+        input { width: 100%; padding: 12px; margin-bottom: 18px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 0.95rem; }
+        input:focus { border-color: var(--ai-glow); }
+        button { width: 100%; background: linear-gradient(135deg, var(--primary), var(--ai-glow)); color: white; border: none; padding: 13px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: opacity 0.2s; }
+        button:hover { opacity: 0.95; }
+        .dashboard-box { display: none; max-width: 550px; }
+        .error { color: #ef4444; font-size: 0.85rem; margin-bottom: 15px; text-align: center; display: none; font-weight: bold; }
+        .success { color: #10b981; font-size: 0.9rem; margin-top: 15px; text-align: center; display: none; font-weight: bold; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.85rem; }
+        .back-link:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Password Protection Screen -->
+    <div id="loginScreen" class="login-box">
+        <h2>🔒 Admin Access</h2>
+        <div id="errorMsg" class="error">❌ كلمة المرور غير صحيحة!</div>
+        <label>أدخل كلمة المرور:</label>
+        <input type="password" id="adminPass" placeholder="••••••••">
+        <button onclick="checkPassword()">دخول للوحة التحكم</button>
+        <a href="index.html" class="back-link">← العودة للموقع الرئيسي</a>
+    </div>
+
+    <!-- 2. Admin Dashboard Control -->
+    <div id="dashScreen" class="dashboard-box">
+        <h2>⚡ لوحة إدارة روابط الأفلييت</h2>
+        <p style="font-size: 0.88rem; color: #666; margin-bottom: 20px; text-align: center;">أدخل روابط التسويق الخاصة بك وسيتم تطبيقها فوراً في كل أزرار الموقع:</p>
+        
+        <label>رابط Booking.com الخاص بك:</label>
+        <input type="text" id="newBookingLink" placeholder="https://www.booking.com/index.html?aid=YOUR_ID">
+
+        <label>رابط Trip.com الخاص بك:</label>
+        <input type="text" id="newTripLink" placeholder="https://www.trip.com/?allianceid=YOUR_ID">
+
+        <button onclick="saveLinks()">💾 حفظ التغييرات وتطبيقها</button>
+        <div id="successMsg" class="success">✅ تم الحفظ بنجاح! تم تحديث جميع الروابط في الموقع.</div>
+
+        <a href="index.html" class="back-link" style="margin-top:25px; font-weight:bold; color:var(--primary);">الذهاب للموقع لرؤية التحديثات ←</a>
+    </div>
+
+    <script>
+        // 🔑 كلمة المرور الافتراضية (يمكنك تغييرها من هنا)
+        const SECRET_PASSWORD = "admin123_trip";
+
+        function checkPassword() {
+            const pass = document.getElementById('adminPass').value;
+            if (pass === SECRET_PASSWORD) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashScreen').style.display = 'block';
+                
+                // جلب الروابط الحالية إن وجدت
+                document.getElementById('newBookingLink').value = localStorage.getItem('user_booking_link') || '';
+                document.getElementById('newTripLink').value = localStorage.getItem('user_trip_link') || '';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+
+        function saveLinks() {
+            const bLink = document.getElementById('newBookingLink').value.trim();
+            const tLink = document.getElementById('newTripLink').value.trim();
+            
+            if (bLink) localStorage.setItem('user_booking_link', bLink);
+            if (tLink) localStorage.setItem('user_trip_link', tLink);
+
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('successMsg').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
