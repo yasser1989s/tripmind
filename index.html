@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TripMind AI | مستشارك الذكي للسفر والمقارنات</title>
+    <title>TripMind AI | Smart Travel Assistant & Deals</title>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -22,7 +22,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -225,7 +225,7 @@
     <!-- Hero Header -->
     <header>
         <h1 class="hero-title">TripMind AI ✈️</h1>
-        <p class="hero-subtitle">مستشارك الذكي لاكتشاف أروع الوجهات وحساب ميزانية السفر بأفضل الأسعار</p>
+        <p class="hero-subtitle">Your AI-powered travel assistant to discover top destinations and best hotel deals worldwide.</p>
     </header>
 
     <!-- Main Content Container -->
@@ -235,47 +235,47 @@
             <!-- Tool 1: AI Weekend Escape Finder -->
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
-                <h3>مكتشف العطلات السريعة</h3>
-                <p>اختر نوع جوك المفضل وسيرشح لك الذكاء الاصطناعي الوجهة المثالية فوراً.</p>
+                <h3>Weekend Escape Finder</h3>
+                <p>Select your preferred travel vibe and let AI suggest the perfect destination for you.</p>
                 <div class="input-group">
                     <select id="vibe">
-                        <option value="استرخاء وطبيعة">🏖️ استرخاء وطبيعة</option>
-                        <option value="مغامرة واستكشاف">⛰️ مغامرة وتجوال</option>
-                        <option value="تسوق وثقافة">تسوق وثقافة وأجواء مدن</option>
+                        <option value="relaxation">🏖️ Relaxation & Nature</option>
+                        <option value="adventure">⛰️ Adventure & Trekking</option>
+                        <option value="culture">🏙️ Shopping & City Culture</option>
                     </select>
                 </div>
-                <button class="btn" onclick="findEscape()"><i class="fa-solid fa-wand-magic-sparkles"></i> اقترح لي وجهة</button>
+                <button class="btn" onclick="findEscape()"><i class="fa-solid fa-wand-magic-sparkles"></i> Get Suggestion</button>
                 <div id="escape-result" class="result-box"></div>
             </div>
 
             <!-- Tool 2: Travel Budget Calculator -->
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>حاسبة ميزانية السفر</h3>
-                <p>احسب تكلفة إقامتك التقديرية بناءً على عدد الأيام والفئة.</p>
+                <h3>Travel Budget Calculator</h3>
+                <p>Estimate your stay cost based on your planned trip duration and accommodation style.</p>
                 <div class="input-group">
-                    <input type="number" id="days" placeholder="عدد الأيام (مثال: 5)" min="1" value="3">
+                    <input type="number" id="days" placeholder="Number of days (e.g., 5)" min="1" value="3">
                 </div>
                 <div class="input-group">
                     <select id="level">
-                        <option value="100">اقتصادي (100$/يوم)</option>
-                        <option value="250">متوسط (250$/يوم)</option>
-                        <option value="500">فاخر (500$/يوم)</option>
+                        <option value="100">Budget ($100 / day)</option>
+                        <option value="250">Standard ($250 / day)</option>
+                        <option value="500">Luxury ($500 / day)</option>
                     </select>
                 </div>
-                <button class="btn" onclick="calcBudget()"><i class="fa-solid fa-coins"></i> احسب الميزانية</button>
+                <button class="btn" onclick="calcBudget()"><i class="fa-solid fa-coins"></i> Calculate Budget</button>
                 <div id="budget-result" class="result-box"></div>
             </div>
 
             <!-- Tool 3: Quick Booking Search -->
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-hotel"></i></div>
-                <h3>البحث السريع للفنادق</h3>
-                <p>ابحث مباشرة عن أفضل العروض لجميع المقاصد السياحية حول العالم.</p>
+                <h3>Quick Hotel Search</h3>
+                <p>Search and compare top hotel deals across thousands of global destinations instantly.</p>
                 <div class="input-group">
-                    <input type="text" id="destination" placeholder="أدخل اسم المدينة (مثال: دبي، إسطنبول)">
+                    <input type="text" id="destination" placeholder="Enter city (e.g., London, Dubai)">
                 </div>
-                <button class="btn" onclick="searchHotels()"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن عروض الفنادق</button>
+                <button class="btn" onclick="searchHotels()"><i class="fa-solid fa-magnifying-glass"></i> Search Hotels</button>
             </div>
 
         </div>
@@ -283,7 +283,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 TripMind.AI - جميع الحقوق محفوظة. تم تطوير النظام بدعم من الذكاء الاصطناعي.</p>
+        <p>© 2026 TripMind.AI - All rights reserved. Powered by AI Technology.</p>
     </footer>
 
     <!-- Logic Script (Affiliate Sync) -->
@@ -297,13 +297,13 @@
             const res = document.getElementById('escape-result');
             let destination = "";
 
-            if(vibe.includes("استرخاء")) destination = "بالي أو المالديف";
-            else if(vibe.includes("مغامرة")) destination = "كابادوكيا أو نيبال";
-            else destination = "إسطنبول أو دبي";
+            if(vibe === "relaxation") destination = "Bali or Maldives";
+            else if(vibe === "adventure") destination = "Cappadocia or Nepal";
+            else destination = "Istanbul or Dubai";
 
             res.style.display = "block";
-            res.innerHTML = `<strong>الوجهة المقترحة:</strong> ${destination}<br>
-            <a href="${bookingLink}" target="_blank" class="affiliate-link">حجز الفنادق والطيران الآن ➔</a>`;
+            res.innerHTML = `<strong>Suggested Destination:</strong> ${destination}<br>
+            <a href="${bookingLink}" target="_blank" class="affiliate-link">Book Hotels & Flights ➔</a>`;
         }
 
         function calcBudget() {
@@ -313,13 +313,13 @@
             const res = document.getElementById('budget-result');
 
             res.style.display = "block";
-            res.innerHTML = `<strong>التكلفة التقديرية:</strong> $${total}<br>
-            <a href="${tripLink}" target="_blank" class="affiliate-link">احجز عبر Trip.com ووفر أكثر ➔</a>`;
+            res.innerHTML = `<strong>Estimated Budget:</strong> $${total}<br>
+            <a href="${tripLink}" target="_blank" class="affiliate-link">Book on Trip.com & Save ➔</a>`;
         }
 
         function searchHotels() {
             const dest = document.getElementById('destination').value;
-            if(!dest) { alert("الرجاء كتابة اسم المدينة"); return; }
+            if(!dest) { alert("Please enter a city name"); return; }
             window.open(bookingLink, '_blank');
         }
     </script>
