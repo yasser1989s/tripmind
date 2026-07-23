@@ -1,306 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMind AI | مستشارك الذكي للسفر والمقارنات</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- 1. ADVANCED HIGH-COMPETITION SEO & GEO META TAGS -->
-    <title>TripMind AI | Best Cheap Flights & Last Minute Hotel Deals</title>
-    <meta name="description" content="TripMind AI finds cheap flight tickets, all-inclusive luxury resort discounts, and last-minute hotel deals on Booking.com & Trip.com. Compare travel prices instantly.">
-    <meta name="keywords" content="cheap flights, hotel deals, last minute hotels, luxury resort discounts, budget travel packages, flight price predictor, Trip.com discount, Booking.com promo, cheap airline tickets, all inclusive vacation deals">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="author" content="TripMind AI Engine">
-    <link rel="canonical" href="https://yourusername.github.io/">
-
-    <!-- 2. OPEN GRAPH & SOCIAL SEO -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="TripMind AI - Cheap Flights & Hotel Deals Finder">
-    <meta property="og:description" content="Compare cheap flights and unlock secret hotel discounts on Booking.com & Trip.com using AI.">
-    <meta property="og:url" content="https://yourusername.github.io/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80">
-
-    <!-- 3. SCHEMA.ORG JSON-LD FOR HIGH-RANKING GOOGLE & YAHOO RICH SNIPPETS -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebApplication",
-          "@id": "https://yourusername.github.io/#app",
-          "name": "TripMind AI",
-          "url": "https://yourusername.github.io/",
-          "applicationCategory": "TravelApplication",
-          "operatingSystem": "All",
-          "description": "AI Travel Engine providing cheap flight search, last minute hotel deal comparisons, and budget matching.",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-        }
-      ]
-    }
-    </script>
-
     <style>
         :root {
-            --primary: #003580;
-            --secondary: #2577e3;
-            --accent: #ff6b00;
-            --ai-glow: #7000ff;
-            --danger: #ef4444;
-            --bg: #f4f7f6;
-            --card-bg: #ffffff;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: var(--bg); color: #222; line-height: 1.5; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        /* Navbar & Logo */
-        .top-navbar { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .brand-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        .logo-icon { background: linear-gradient(135deg, var(--primary), var(--ai-glow)); color: white; width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; box-shadow: 0 4px 10px rgba(112,0,255,0.3); }
-        .logo-text { font-size: 1.3rem; font-weight: 800; color: #111827; letter-spacing: -0.5px; }
-        .logo-text span { color: var(--ai-glow); }
-        .admin-link { color: #888; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
-        .admin-link:hover { color: var(--primary); }
+        body {
+            background-color: var(--bg-light);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
 
-        /* Header */
-        header { background: linear-gradient(135deg, var(--primary), var(--ai-glow)); color: white; padding: 3rem 1rem; text-align: center; }
-        .badge { background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-        header h1 { font-size: 2.3rem; margin: 12px 0; font-weight: 800; }
-        header p { opacity: 0.9; font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
+        /* --- Header & Hero Section --- */
+        header {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(37, 99, 235, 0.8)),
+                        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-        .container { max-width: 900px; margin: -30px auto 40px; padding: 0 15px; }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-out;
+        }
 
-        /* AI Cards Base */
-        .ai-card { background: var(--card-bg); border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid #e0d5ff; margin-bottom: 25px; }
-        .ai-title { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 1.2rem; color: var(--ai-glow); margin-bottom: 15px; }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
 
-        .trend-badge { background: #fef2f2; border: 1px solid #fca5a5; color: var(--danger); font-size: 0.85rem; font-weight: bold; padding: 8px 12px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 6px; }
+        /* --- Container --- */
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-        .calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
-        .input-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; color: #555; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
-        
-        .calc-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .calc-btn:hover { background: #00255a; }
+        /* --- AI Cards Section --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
 
-        .escape-btn { width: 100%; background: linear-gradient(45deg, var(--ai-glow), var(--accent)); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.2s; }
-        .escape-btn:hover { transform: scale(1.01); }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            animation: fadeIn 0.8s ease-out;
+        }
 
-        .output-box { margin-top: 15px; padding: 15px; background: #f8f5ff; border-radius: 8px; display: none; font-size: 0.95rem; border-left: 4px solid var(--ai-glow); }
-        .output-box a { color: var(--primary); font-weight: bold; text-decoration: underline; }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
 
-        .hero-buttons { display: flex; gap: 12px; margin-bottom: 25px; }
-        .btn { flex: 1; text-align: center; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; transition: 0.2s; }
-        .btn-booking { background-color: var(--primary); }
-        .btn-trip { background-color: var(--secondary); }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
 
-        .seo-tags { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px; scrollbar-width: none; }
-        .tag { background: white; border: 1px solid #ddd; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; white-space: nowrap; color: #555; text-decoration: none; font-weight: 600; }
-        .tag:hover { border-color: var(--accent); color: var(--accent); }
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary);
+            color: white;
+        }
 
-        /* High Competition Keyword Section */
-        .seo-article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 20px; }
-        .seo-article-card { background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 15px; }
-        .seo-article-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 8px; font-weight: 700; }
-        .seo-article-card p { font-size: 0.85rem; color: #666; line-height: 1.4; margin-bottom: 10px; }
-        .seo-article-card a { font-size: 0.85rem; color: var(--accent); font-weight: bold; text-decoration: none; }
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
 
-        .alert-card { background: linear-gradient(135deg, #111827, #1f2937); color: white; }
-        .alert-card .ai-title { color: #f59e0b; }
-        .alert-form { display: flex; gap: 10px; }
-        .alert-input { flex: 1; padding: 10px; border-radius: 8px; border: none; outline: none; }
-        .alert-btn { background: #f59e0b; color: black; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-        footer { text-align: center; padding: 30px; font-size: 0.85rem; color: #888; }
+        /* --- Interactive Form Elements --- */
+        .input-group {
+            margin-bottom: 15px;
+        }
 
-        @media (max-width: 600px) {
-            .calculator-grid, .hero-buttons, .alert-form { grid-template-columns: 1fr; flex-direction: column; }
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* --- Dynamic Result Box --- */
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            display: none;
+            font-size: 0.9rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .affiliate-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: white;
+            background: #10b981;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .affiliate-link:hover {
+            background: #059669;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+            margin-top: 50px;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BRAND NAVBAR -->
-    <nav class="top-navbar">
-        <a href="#" class="brand-logo">
-            <div class="logo-icon">✈️</div>
-            <div class="logo-text">TripMind<span>.AI</span></div>
-        </a>
-        <a href="admin.html" class="admin-link">🔒 Admin</a>
-    </nav>
-
+    <!-- Hero Header -->
     <header>
-        <span class="badge">🤖 Autonomous AI Travel Engine</span>
-        <h1>Cheap Flights & Last Minute Hotel Deals</h1>
-        <p>Compare cheap airline tickets, analyze hotel price trends, and discover discount travel packages on Booking.com & Trip.com.</p>
+        <h1 class="hero-title">TripMind AI ✈️</h1>
+        <p class="hero-subtitle">مستشارك الذكي لاكتشاف أروع الوجهات وحساب ميزانية السفر بأفضل الأسعار</p>
     </header>
 
+    <!-- Main Content Container -->
     <div class="container">
-
-        <!-- Real-Time Market Trend Alert -->
-        <div class="trend-badge">
-            🔥 <span><strong>AI Market Prediction:</strong> Flight prices & hotel rates expected to rise +18% over the upcoming weekend. Lock cheap rates now.</span>
-        </div>
-
-        <!-- 1. AI Weekend Escape Finder -->
-        <div class="ai-card">
-            <div class="ai-title">⚡ Instant AI Weekend Escape Finder</div>
-            <p style="font-size:0.9rem; color:#666; margin-bottom:15px;">Looking for cheap vacation deals? Let our AI match low-cost flight routes & hotel discounts instantly.</p>
-            <button onclick="findWeekendEscape()" class="escape-btn">Find My Weekend Escape 🎲</button>
-            <div id="escapeOutput" class="output-box"></div>
-        </div>
-
-        <!-- 2. AI Budget Calculator -->
-        <div class="ai-card">
-            <div class="ai-title">📊 AI Travel Budget & Flight Matcher</div>
-            <div class="calculator-grid">
+        <div class="grid">
+            
+            <!-- Tool 1: AI Weekend Escape Finder -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+                <h3>مكتشف العطلات السريعة</h3>
+                <p>اختر نوع جوك المفضل وسيرشح لك الذكاء الاصطناعي الوجهة المثالية فوراً.</p>
                 <div class="input-group">
-                    <label>Max Budget ($ USD):</label>
-                    <input type="number" id="budgetInput" placeholder="e.g. 500" value="500">
-                </div>
-                <div class="input-group">
-                    <label>Trip Style:</label>
-                    <select id="styleInput">
-                        <option value="budget">Budget / Backpacker</option>
-                        <option value="balanced" selected>Balanced Comfort</option>
-                        <option value="luxury">Luxury Stay</option>
+                    <select id="vibe">
+                        <option value="استرخاء وطبيعة">🏖️ استرخاء وطبيعة</option>
+                        <option value="مغامرة واستكشاف">⛰️ مغامرة وتجوال</option>
+                        <option value="تسوق وثقافة">تسوق وثقافة وأجواء مدن</option>
                     </select>
                 </div>
+                <button class="btn" onclick="findEscape()"><i class="fa-solid fa-wand-magic-sparkles"></i> اقترح لي وجهة</button>
+                <div id="escape-result" class="result-box"></div>
             </div>
-            <button onclick="calculateBudget()" class="calc-btn">Calculate Best Stays ⚡</button>
-            <div id="calcOutput" class="output-box"></div>
-        </div>
 
-        <!-- High-Search SEO Keywords Chips -->
-        <div class="seo-tags">
-            <a href="https://www.booking.com" class="tag booking-link">🏨 Cheap Hotel Deals</a>
-            <a href="https://www.trip.com" class="tag trip-link">✈️ Discount Airline Tickets</a>
-            <a href="https://www.booking.com" class="tag booking-link">🏖️ All Inclusive Resorts</a>
-            <a href="https://www.trip.com" class="tag trip-link">💳 Last Minute Flight Deals</a>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="hero-buttons">
-            <a href="https://www.booking.com" target="_blank" rel="noopener" class="btn btn-booking booking-link">Search Booking.com Hotels</a>
-            <a href="https://www.trip.com" target="_blank" rel="noopener" class="btn btn-trip trip-link">Search Trip.com Flights</a>
-        </div>
-
-        <!-- HIGH-COMPETITION SEO KEYWORD CONTENT SECTION -->
-        <div class="ai-card">
-            <div class="ai-title">🌐 Popular Travel Categories & Cheap Deals</div>
-            <div class="seo-article-grid">
-                
-                <div class="seo-article-card">
-                    <h3>Cheap Flight Bookings</h3>
-                    <p>Find low cost airline tickets and flight deals across global destinations with real-time price comparison tools.</p>
-                    <a href="https://www.trip.com" target="_blank" class="trip-link">Search Cheap Flights →</a>
+            <!-- Tool 2: Travel Budget Calculator -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                <h3>حاسبة ميزانية السفر</h3>
+                <p>احسب تكلفة إقامتك التقديرية بناءً على عدد الأيام والفئة.</p>
+                <div class="input-group">
+                    <input type="number" id="days" placeholder="عدد الأيام (مثال: 5)" min="1" value="3">
                 </div>
-
-                <div class="seo-article-card">
-                    <h3>Last Minute Hotel Deals</h3>
-                    <p>Unlock secret discounts and free cancellation options on top luxury hotels and boutique stays worldwide.</p>
-                    <a href="https://www.booking.com" target="_blank" class="booking-link">Find Hotel Deals →</a>
+                <div class="input-group">
+                    <select id="level">
+                        <option value="100">اقتصادي (100$/يوم)</option>
+                        <option value="250">متوسط (250$/يوم)</option>
+                        <option value="500">فاخر (500$/يوم)</option>
+                    </select>
                 </div>
-
-                <div class="seo-article-card">
-                    <h3>All Inclusive Resorts</h3>
-                    <p>Discover family-friendly all-inclusive vacation packages and beachfront resort discounts for your next holiday.</p>
-                    <a href="https://www.booking.com" target="_blank" class="booking-link">Explore Resorts →</a>
-                </div>
-
-                <div class="seo-article-card">
-                    <h3>Budget Travel Packages</h3>
-                    <p>Maximize your savings with AI-curated weekend getaways, cheap flight routes, and affordable luxury stays.</p>
-                    <a href="https://www.trip.com" target="_blank" class="trip-link">Book Discount Packages →</a>
-                </div>
-
+                <button class="btn" onclick="calcBudget()"><i class="fa-solid fa-coins"></i> احسب الميزانية</button>
+                <div id="budget-result" class="result-box"></div>
             </div>
-        </div>
 
-        <!-- Price Alerts -->
-        <div class="ai-card alert-card">
-            <div class="ai-title">🔔 Cheap Flight & Hotel Price Drop Alerts</div>
-            <p style="font-size: 0.88rem; margin-bottom: 12px; opacity: 0.9;">Get automated notifications when flight tickets or hotel prices drop for top travel destinations.</p>
-            <div class="alert-form">
-                <input type="email" id="alertEmail" class="alert-input" placeholder="Enter your email address...">
-                <button onclick="subscribeAlert()" class="alert-btn">Get Alerts</button>
+            <!-- Tool 3: Quick Booking Search -->
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-hotel"></i></div>
+                <h3>البحث السريع للفنادق</h3>
+                <p>ابحث مباشرة عن أفضل العروض لجميع المقاصد السياحية حول العالم.</p>
+                <div class="input-group">
+                    <input type="text" id="destination" placeholder="أدخل اسم المدينة (مثال: دبي، إسطنبول)">
+                </div>
+                <button class="btn" onclick="searchHotels()"><i class="fa-solid fa-magnifying-glass"></i> ابحث عن عروض الفنادق</button>
             </div>
-            <div id="alertMsg" style="margin-top: 10px; font-size: 0.85rem; color: #4ade80; display: none;"></div>
-        </div>
 
+        </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2026 TripMind AI. All rights reserved.</p>
+        <p>© 2026 TripMind.AI - جميع الحقوق محفوظة. تم تطوير النظام بدعم من الذكاء الاصطناعي.</p>
     </footer>
 
-    <!-- Interactive Logic & Admin Auto Sync -->
+    <!-- Logic Script (Affiliate Sync) -->
     <script>
-        // Automatic Dynamic Link Updater from Admin Dashboard
-        function getBookingLink() {
-            return localStorage.getItem('user_booking_link') || 'https://www.booking.com';
-        }
-        function getTripLink() {
-            return localStorage.getItem('user_trip_link') || 'https://www.trip.com';
-        }
+        // Load Affiliate Links from localStorage (Set by Admin Panel)
+        const bookingLink = localStorage.getItem('tripmind_booking_id') || 'https://www.booking.com/';
+        const tripLink = localStorage.getItem('tripmind_trip_id') || 'https://www.trip.com/';
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const bLink = getBookingLink();
-            const tLink = getTripLink();
+        function findEscape() {
+            const vibe = document.getElementById('vibe').value;
+            const res = document.getElementById('escape-result');
+            let destination = "";
 
-            document.querySelectorAll('.booking-link').forEach(el => el.href = bLink);
-            document.querySelectorAll('.trip-link').forEach(el => el.href = tLink);
-        });
+            if(vibe.includes("استرخاء")) destination = "بالي أو المالديف";
+            else if(vibe.includes("مغامرة")) destination = "كابادوكيا أو نيبال";
+            else destination = "إسطنبول أو دبي";
 
-        const escapes = [
-            { city: "Istanbul", price: "$180 Total", highlight: "Boutique hotels & cheap direct flight connections." },
-            { city: "Dubai", price: "$320 Total", highlight: "5-Star Luxury resorts at reduced seasonal rates." },
-            { city: "Rome", price: "$240 Total", highlight: "Historic city center stays with low-cost flights." },
-            { city: "Bangkok", price: "$150 Total", highlight: "Unbeatable budget luxury with cheap local travel." }
-        ];
-
-        function findWeekendEscape() {
-            const random = escapes[Math.floor(Math.random() * escapes.length)];
-            const output = document.getElementById('escapeOutput');
-            output.style.display = 'block';
-            output.innerHTML = `🎉 <strong>AI Recommended Escape: ${random.city}</strong><br>
-            <strong>Estimated Cost:</strong> ${random.price}<br>
-            <strong>Highlights:</strong> ${random.highlight}<br><br>
-            👉 <a href="${getBookingLink()}" target="_blank">Book ${random.city} Hotel Deal</a> | 
-            <a href="${getTripLink()}" target="_blank">Book Flight Route</a>`;
+            res.style.display = "block";
+            res.innerHTML = `<strong>الوجهة المقترحة:</strong> ${destination}<br>
+            <a href="${bookingLink}" target="_blank" class="affiliate-link">حجز الفنادق والطيران الآن ➔</a>`;
         }
 
-        function calculateBudget() {
-            const budget = document.getElementById('budgetInput').value;
-            const style = document.getElementById('styleInput').value;
-            const output = document.getElementById('calcOutput');
+        function calcBudget() {
+            const days = document.getElementById('days').value || 1;
+            const level = document.getElementById('level').value;
+            const total = days * level;
+            const res = document.getElementById('budget-result');
 
-            if (!budget || budget <= 0) {
-                output.style.display = 'block';
-                output.innerHTML = "Please enter a valid budget amount.";
-                return;
-            }
-
-            let estDays = Math.floor(budget / (style === 'budget' ? 40 : style === 'luxury' ? 200 : 90));
-            if (estDays < 1) estDays = 1;
-
-            output.style.display = 'block';
-            output.innerHTML = `💡 <strong>AI Analysis:</strong> With $${budget} on a <em>${style}</em> budget, you can cover approximately <strong>${estDays} days</strong>.<br><br>
-            👉 <a href="${getBookingLink()}" target="_blank">View Matching Booking.com Hotels</a><br>
-            👉 <a href="${getTripLink()}" target="_blank">View Matching Trip.com Flights</a>`;
+            res.style.display = "block";
+            res.innerHTML = `<strong>التكلفة التقديرية:</strong> $${total}<br>
+            <a href="${tripLink}" target="_blank" class="affiliate-link">احجز عبر Trip.com ووفر أكثر ➔</a>`;
         }
 
-        function subscribeAlert() {
-            const email = document.getElementById('alertEmail').value;
-            const msg = document.getElementById('alertMsg');
-            if (email.includes('@')) {
-                msg.style.display = 'block';
-                msg.innerHTML = "✅ Registered! Our automated algorithm will monitor cheap rates for you.";
-            } else {
-                alert('Please enter a valid email address.');
-            }
+        function searchHotels() {
+            const dest = document.getElementById('destination').value;
+            if(!dest) { alert("الرجاء كتابة اسم المدينة"); return; }
+            window.open(bookingLink, '_blank');
         }
     </script>
-
 </body>
 </html>
