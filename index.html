@@ -100,8 +100,53 @@
             font-size: 1.15rem;
             opacity: 0.95;
             max-width: 650px;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* --- Live Online Visitors Banner --- */
+        .live-status-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .blinking-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 1.8s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .visitor-location {
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            padding-left: 12px;
+            opacity: 0.95;
         }
 
         /* --- Container --- */
@@ -592,6 +637,17 @@
         </div>
         <h1 class="hero-title">TripMind AI ✈️</h1>
         <p class="hero-subtitle">Your AI-powered travel assistant to compare deals, calculate budgets, and explore top destinations.</p>
+
+        <!-- Live Active Travelers Widget -->
+        <div class="live-status-card">
+            <div class="status-indicator">
+                <span class="blinking-dot"></span>
+                <span id="live-count">28</span> active travelers online
+            </div>
+            <div class="visitor-location" id="visitor-location">
+                <i class="fa-solid fa-earth-americas"></i> Recent visitor from <strong id="live-country">United States 🇺🇸</strong>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content Container -->
@@ -898,7 +954,7 @@
         <p>© 2026 TripMind.AI - All rights reserved. Powered by AI Technology.</p>
     </footer>
 
-    <!-- Logic Script (Affiliate Sync, Dynamic Features, and Legal Modals) -->
+    <!-- Logic Script -->
     <script>
         const bookingLink = localStorage.getItem('tripmind_booking_id') || 'https://www.booking.com/';
         const tripLink = localStorage.getItem('tripmind_trip_id') || 'https://www.trip.com/';
@@ -975,6 +1031,24 @@
             element.querySelector('span').innerText = isVisible ? "+" : "-";
         }
 
+        /* --- Live Active Visitors Updater --- */
+        const globalCountries = [
+            "United States 🇺🇸", "Germany 🇩🇪", "United Kingdom 🇬🇧", 
+            "United Arab Emirates 🇦🇪", "Saudi Arabia 🇸🇦", "Canada 🇨🇦", 
+            "France 🇫🇷", "Spain 🇪🇸", "Australia 🇦🇺"
+        ];
+
+        function updateLiveStats() {
+            const currentCount = Math.floor(Math.random() * (45 - 20 + 1)) + 20;
+            const randomCountry = globalCountries[Math.floor(Math.random() * globalCountries.length)];
+
+            document.getElementById('live-count').innerText = currentCount;
+            document.getElementById('live-country').innerText = randomCountry;
+        }
+
+        setInterval(updateLiveStats, 7000);
+        updateLiveStats();
+
         /* --- Live Booking Notification Toast --- */
         const mockToasts = [
             { user: "Alex from New York", action: "just saved $120 on a hotel in Paris" },
@@ -991,7 +1065,7 @@
             setTimeout(() => toast.classList.remove('show'), 4000);
         }, 12000);
 
-        /* --- Legal & Article Modals Controller (Contains 10 Full Articles) --- */
+        /* --- Legal & Article Modals Controller --- */
         function openModal(type) {
             const modal = document.getElementById('modal-container');
             const body = document.getElementById('modal-body');
