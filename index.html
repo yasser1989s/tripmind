@@ -1,11 +1,13 @@
-<script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    window.history.replaceState(null, '', window.location.pathname.replace('/index.html', '/') + window.location.search + window.location.hash);
-  }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Clean URL Script (Hide index.html) -->
+    <script>
+      if (window.location.pathname.endsWith('/index.html')) {
+        window.history.replaceState(null, '', window.location.pathname.replace('/index.html', '/') + window.location.search + window.location.hash);
+      }
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TripMind AI | Ultimate Smart Travel & Deals Hub</title>
