@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TripMind AI | Ultimate Smart Travel & Deals Hub</title>
+    <title>TripMind AI | Ultimate Smart Travel, Deals & Guides Hub</title>
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -210,7 +210,7 @@
             margin-bottom: 15px;
         }
 
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #cbd5e1;
@@ -219,7 +219,7 @@
             outline: none;
         }
 
-        input:focus, select:focus {
+        input:focus, select:focus, textarea:focus {
             border-color: var(--primary);
         }
 
@@ -336,6 +336,58 @@
             color: white;
         }
 
+        /* --- Blog & Guides Section (AdSense High-Value Content: 10 Articles) --- */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .article-content p {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .read-more-btn {
+            margin-top: auto;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.88rem;
+            cursor: pointer;
+        }
+
         /* --- Currency Converter --- */
         .converter-card {
             background: white;
@@ -447,14 +499,67 @@
             font-size: 0.9rem;
         }
 
+        /* --- Modals for Policies & Legal --- */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 750px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             color: #64748b;
             font-size: 0.9rem;
             border-top: 1px solid #e2e8f0;
             background: white;
             margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
         }
 
         @keyframes fadeInDown {
@@ -593,6 +698,105 @@
             </div>
         </div>
 
+        <!-- FEATURE: Travel Insights & Smart Guides (10 Articles for AdSense Value Content) -->
+        <div class="section-title">
+            <h2>📚 Smart Travel Insights & Articles</h2>
+            <p>10 expert guides to save money, plan effectively, and travel smarter</p>
+        </div>
+
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Flight Deals">
+                <div class="article-content">
+                    <h3>1. How to Lock in the Cheapest Flight Deals in 2026</h3>
+                    <p>Airline pricing models shift dynamically based on demand. Learn how early bookings and private browsing slash ticket prices.</p>
+                    <span class="read-more-btn" onclick="openModal('article1')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 2 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" alt="AI Itinerary">
+                <div class="article-content">
+                    <h3>2. Leveraging AI for Seamless Itinerary Planning</h3>
+                    <p>Discover how artificial intelligence aggregates live weather, crowd indices, and budget constraints into personalized travel schedules.</p>
+                    <span class="read-more-btn" onclick="openModal('article2')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 3 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hotel Hacks">
+                <div class="article-content">
+                    <h3>3. Top Hotel Booking Hacks Every Traveler Should Know</h3>
+                    <p>Uncover how member loyalty perks and direct aggregator links guarantee complimentary upgrades and best-rate guarantees.</p>
+                    <span class="read-more-btn" onclick="openModal('article3')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 4 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Budget Travel">
+                <div class="article-content">
+                    <h3>4. The Ultimate Guide to Solo Budget Traveling</h3>
+                    <p>Solo travel doesn't have to be expensive. Explore safe budget destinations, public transit hacks, and hostel culture tips.</p>
+                    <span class="read-more-btn" onclick="openModal('article4')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 5 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Packing Smart">
+                <div class="article-content">
+                    <h3>5. Master the Art of Minimalist Carry-On Packing</h3>
+                    <p>Avoid carry-on fee traps and heavy luggage. A step-by-step guide to capsule travel wardrobes and gear packing techniques.</p>
+                    <span class="read-more-btn" onclick="openModal('article5')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 6 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" alt="Off Season">
+                <div class="article-content">
+                    <h3>6. Why Traveling During Shoulder Season Saves Millions</h3>
+                    <p>Skip the tourist crowds and peak hotel markups by timing your holiday between peak summer and winter low seasons.</p>
+                    <span class="read-more-btn" onclick="openModal('article6')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 7 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="Travel Insurance">
+                <div class="article-content">
+                    <h3>7. Essential Travel Insurance Checklist for 2026</h3>
+                    <p>Medical emergencies, flight cancellations, and lost baggage: How to pick comprehensive policies without overpaying.</p>
+                    <span class="read-more-btn" onclick="openModal('article7')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 8 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" alt="Digital Nomad">
+                <div class="article-content">
+                    <h3>8. How to Work Remotely While Exploring the World</h3>
+                    <p>Equip yourself with the best eSIMs, co-working spaces, and remote work routines to maintain productivity on the road.</p>
+                    <span class="read-more-btn" onclick="openModal('article8')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 9 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Foreign Exchange">
+                <div class="article-content">
+                    <h3>9. Avoiding ATM Fees and Foreign Currency Markups</h3>
+                    <p>Don't lose 10% of your budget at airport exchange counters. Use zero-fee multi-currency cards and local ATMs wisely.</p>
+                    <span class="read-more-btn" onclick="openModal('article9')">Read Article ➔</span>
+                </div>
+            </div>
+            <!-- Article 10 -->
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?auto=format&fit=crop&w=600&q=80" alt="Sustainable Travel">
+                <div class="article-content">
+                    <h3>10. Eco-Friendly Travel: Sustainable Tourism Practices</h3>
+                    <p>Reduce your carbon footprint on vacation by choosing eco-certified stays and supporting local communities directly.</p>
+                    <span class="read-more-btn" onclick="openModal('article10')">Read Article ➔</span>
+                </div>
+            </div>
+        </div>
+
         <!-- FEATURE: Currency Converter Widget -->
         <div class="converter-card">
             <h3>💱 Instant Travel Currency Converter</h3>
@@ -676,12 +880,25 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- LEGAL & ARTICLE MODALS (Required for AdSense) -->
+    <div class="modal" id="modal-container">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer with Required AdSense Policy Links -->
     <footer>
+        <div class="footer-links">
+            <a onclick="openModal('privacy')">Privacy Policy</a> | 
+            <a onclick="openModal('terms')">Terms of Service</a> | 
+            <a onclick="openModal('contact')">Contact Us</a>
+        </div>
         <p>© 2026 TripMind.AI - All rights reserved. Powered by AI Technology.</p>
     </footer>
 
-    <!-- Logic Script (Affiliate Sync & Dynamic Features) -->
+    <!-- Logic Script (Affiliate Sync, Dynamic Features, and Legal Modals) -->
     <script>
         const bookingLink = localStorage.getItem('tripmind_booking_id') || 'https://www.booking.com/';
         const tripLink = localStorage.getItem('tripmind_trip_id') || 'https://www.trip.com/';
@@ -773,6 +990,106 @@
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 4000);
         }, 12000);
+
+        /* --- Legal & Article Modals Controller (Contains 10 Full Articles) --- */
+        function openModal(type) {
+            const modal = document.getElementById('modal-container');
+            const body = document.getElementById('modal-body');
+            
+            let content = "";
+            if (type === 'privacy') {
+                content = `
+                    <h2>Privacy Policy</h2>
+                    <p style="margin-top:10px;">At TripMind.AI, accessible from tripmind.store, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by TripMind.AI and how we use it.</p>
+                    <h3 style="margin-top:15px;">Google DoubleClick DART Cookie</h3>
+                    <p>Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to www.tripmind.store and other sites on the internet.</p>
+                    <h3 style="margin-top:15px;">Third-Party Privacy Policies</h3>
+                    <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on TripMind.AI, which are sent directly to users' browser.</p>
+                `;
+            } else if (type === 'terms') {
+                content = `
+                    <h2>Terms of Service</h2>
+                    <p style="margin-top:10px;">Welcome to TripMind.AI! By accessing tripmind.store, you agree to comply with and be bound by the following terms and conditions of use.</p>
+                    <p style="margin-top:10px;">TripMind.AI provides travel price comparison tools, currency estimates, and affiliate search redirects. We do not process direct payments or sell travel inventory directly. Bookings are fulfilled on partner platforms (e.g., Booking.com, Trip.com).</p>
+                `;
+            } else if (type === 'contact') {
+                content = `
+                    <h2>Contact Us</h2>
+                    <p style="margin-top:10px; margin-bottom:15px;">Have questions, feedback, or business inquiries? Send us a message below.</p>
+                    <div class="input-group"><input type="text" placeholder="Your Name"></div>
+                    <div class="input-group"><input type="email" placeholder="Your Email"></div>
+                    <div class="input-group"><textarea rows="4" placeholder="Your Message"></textarea></div>
+                    <button class="btn" onclick="alert('Thank you for reaching out! We will reply within 24 hours.'); closeModal();">Send Message</button>
+                `;
+            } else if (type === 'article1') {
+                content = `
+                    <h2>1. How to Lock in the Cheapest Flight Deals in 2026</h2>
+                    <p style="margin-top:10px;">Airline pricing algorithms are more dynamic than ever. To secure the best rates, industry statistics show that booking 6 to 8 weeks in advance for domestic travel and 2 to 4 months for international journeys yields optimal discounts.</p>
+                    <p style="margin-top:10px;">Furthermore, utilizing AI-driven aggregation platforms lets you stay ahead of price adjustments before demand drives tariffs upward. Clearing your browser cookies or using incognito mode ensures dynamic price hikes aren't triggered based on your search frequency.</p>
+                `;
+            } else if (type === 'article2') {
+                content = `
+                    <h2>2. Leveraging AI for Seamless Itinerary Planning</h2>
+                    <p style="margin-top:10px;">Artificial intelligence has shifted travel planning from manual hours of research to instant customization. Modern travel models process real-time hotel availability, flight routes, and local weather patterns to optimize your trip.</p>
+                    <p style="margin-top:10px;">By using smart prompts and budget calculators, travelers can build stress-free, multi-city plans that account for layover times, local transit costs, and seasonal attractions without unexpected budget surprises.</p>
+                `;
+            } else if (type === 'article3') {
+                content = `
+                    <h2>3. Top Hotel Booking Hacks Every Traveler Should Know</h2>
+                    <p style="margin-top:10px;">When booking accommodations, comparing aggregator links with direct hotel packages ensures you don't miss hidden perks like complimentary breakfast or free room upgrades.</p>
+                    <p style="margin-top:10px;">Always check loyalty programs before finalizing reservations. Joining hotel reward portals often unlocks secret tier rates and flexible 24-hour cancellation policies that aren't advertised publicly.</p>
+                `;
+            } else if (type === 'article4') {
+                content = `
+                    <h2>4. The Ultimate Guide to Solo Budget Traveling</h2>
+                    <p style="margin-top:10px;">Solo travel offers unmatched freedom, but managing expenses alone requires strategic planning. Choosing boutique hostels or guesthouses with high user ratings provides both safety and social networking opportunities.</p>
+                    <p style="margin-top:10px;">Relying on public transport passes, local food markets, and free walking tours allows solo explorers to stretch their budgets significantly across Europe and Southeast Asia.</p>
+                `;
+            } else if (type === 'article5') {
+                content = `
+                    <h2>5. Master the Art of Minimalist Carry-On Packing</h2>
+                    <p style="margin-top:10px;">Avoid airline baggage fees and long airport wait times by mastering carry-on travel. Focus on versatile capsule wardrobes using breathable, wrinkle-resistant fabrics.</p>
+                    <p style="margin-top:10px;">Compression packing cubes and multi-port universal chargers keep your belongings organized and compact, ensuring seamless airport security checks wherever you fly.</p>
+                `;
+            } else if (type === 'article6') {
+                content = `
+                    <h2>6. Why Traveling During Shoulder Season Saves Millions</h2>
+                    <p style="margin-top:10px;">Shoulder season—the period between peak tourist season and off-peak times—is the sweet spot for budget travelers. Weather conditions remain pleasant, while accommodation rates drop up to 40%.</p>
+                    <p style="margin-top:10px;">Popular spots like Paris, Rome, and Kyoto are significantly less crowded, allowing for authentic local interactions and hassle-free sight-seeing.</p>
+                `;
+            } else if (type === 'article7') {
+                content = `
+                    <h2>7. Essential Travel Insurance Checklist for 2026</h2>
+                    <p style="margin-top:10px;">Unforeseen medical expenses or trip interruptions can quickly ruin a vacation budget. Having reliable travel insurance is an absolute necessity for global trips.</p>
+                    <p style="margin-top:10px;">Ensure your plan includes emergency medical evacuation, trip cancellation protection, and gear coverage for high-value electronics like cameras and laptops.</p>
+                `;
+            } else if (type === 'article8') {
+                content = `
+                    <h2>8. How to Work Remotely While Exploring the World</h2>
+                    <p style="margin-top:10px;">The rise of digital nomadism makes working while traveling easier than ever. Staying connected with reliable international eSIMs guarantees stable internet for work deadlines.</p>
+                    <p style="margin-top:10px;">Choose accommodations near co-working spaces and maintain clear schedule boundaries to balance professional productivity with leisure exploration.</p>
+                `;
+            } else if (type === 'article9') {
+                content = `
+                    <h2>9. Avoiding ATM Fees and Foreign Currency Markups</h2>
+                    <p style="margin-top:10px;">Foreign exchange booths at airports often charge exorbitant commission rates. Smart travelers utilize digital banking apps that offer zero interbank foreign transaction fees.</p>
+                    <p style="margin-top:10px;">When withdrawing local cash, always choose to be charged in the local currency rather than your home currency to avoid dynamic currency conversion (DCC) markups.</p>
+                `;
+            } else if (type === 'article10') {
+                content = `
+                    <h2>10. Eco-Friendly Travel: Sustainable Tourism Practices</h2>
+                    <p style="margin-top:10px;">Sustainable travel aims to preserve ecosystems and support local economies responsibly. Opting for eco-certified stays and reducing single-use plastics makes a positive impact.</p>
+                    <p style="margin-top:10px;">Supporting local tour guides, dining at family-owned eateries, and choosing train travel over short-haul flights significantly reduces your environmental footprint.</p>
+                `;
+            }
+
+            body.innerHTML = content;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').style.display = "none";
+        }
     </script>
 </body>
 </html>
