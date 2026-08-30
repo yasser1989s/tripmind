@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n    <!-- Travelpayouts Drive -->
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!-- Travelpayouts Drive -->
     <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
       (function () {
           var script = document.createElement("script");
@@ -35,7 +35,7 @@ footer{background:#111827;color:#fff;padding:55px 0 25px;margin-top:30px}footer 
 </style>
 </head>
 <body>
-<nav><div class="wrap navin"><a class="brand" href="#">Trip<span>Mind</span> AI</a><div class="links"><a href="#tools">Tools</a><a href="#destinations">Destinations</a><a href="#guides">Guides</a><a href="#faq">FAQ</a></div><a class="navcta" href="#planner">Plan a trip</a></div></nav>
+<nav><div class="wrap navin"><a class="brand" href="/">Trip<span>Mind</span> AI</a><div class="links"><a href="#tools">Tools</a><a href="#destinations">Destinations</a><a href="#guides">Guides</a><a href="#faq">FAQ</a></div><a class="navcta" href="#planner">Plan a trip</a></div></nav>
 <header class="hero"><div class="wrap heroGrid"><div><div class="eyebrow">Travel intelligence, not travel noise</div><h1>Know what your trip will <em>really</em> cost.</h1><p>TripMind turns your budget, dates, travel style and destination ideas into a transparent trip score, realistic cost model and next-step booking options.</p><div class="heroActions"><a class="primary" href="#planner">Build my trip</a><a class="secondary" href="#tools">Explore tools</a></div></div><div class="orb"><div class="eyebrow" style="color:#a7a2ff">AI TRIP SIGNAL</div><h3>€900 · 5 days · 2 travelers</h3><p style="color:#c5cad3">Recommended: Istanbul · strong value · low planning friction</p><div class="mini"><div><small>Trip value</small><b>94/100</b></div><div><small>Estimated total</small><b>€790</b></div><div><small>Budget left</small><b>€110</b></div><div><small>Confidence</small><b>High</b></div></div></div></div></header>
 <main>
 <section class="section" id="planner"><div class="wrap"><div class="sectionHead"><div><div class="eyebrow">01 · AI planner</div><h2>Your trip, modeled before you book.</h2></div><p class="muted">No fake live data. Estimates are clearly labeled.</p></div><div class="panel"><div class="formgrid">
@@ -79,4 +79,4 @@ const TRIPMIND_ARTICLES=["<article class=\"guide\" id=\"article-1\"><div class=\
 function openArticle(index){const article=TRIPMIND_ARTICLES[index-1];if(!article)return;document.getElementById("readerContent").innerHTML=article;const r=document.getElementById("reader");r.classList.add("open");r.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
 function closeArticle(){const r=document.getElementById("reader");r.classList.remove("open");r.setAttribute("aria-hidden","true");document.body.style.overflow="";}
 document.addEventListener("click",function(e){const link=e.target.closest(".readMore");if(link){e.preventDefault();openArticle(Number(link.dataset.article));}if(e.target.id==="reader")closeArticle();});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeArticle();});
-</script>\n</body></html>
+</script></body></html>
